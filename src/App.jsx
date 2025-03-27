@@ -1,11 +1,39 @@
 import React from 'react'
 
-const App = () => {
-  return (
-    <div>
-      <h2 className="text-3xl font-medium tracking-wider capitalize">hel</h2>
-    </div>
-  )
-}
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import {
+  About,
+  Login,
+  Register,
+  Orders,
+  Products,
+  SingleProduct,
+  HomeLayout,
+  Error,
+  Cart,
+  Checkout,
+  Landing,
+} from './pages'
 
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <HomeLayout />,
+    errorElement: <Error />,
+    children: [
+      { index: true, element: <Landing /> },
+      { path: 'about', element: <About /> },
+      { path: 'orders', element: <Orders /> },
+      { path: 'products', element: <Products /> },
+      { path: 'products/:id', element: <SingleProduct /> },
+      { path: 'cart', element: <Cart /> },
+      { path: 'checkout', element: <Checkout /> },
+    ],
+  },
+  { path: 'login', element: <Login />, errorElement: <Error /> },
+  { path: 'register', element: <Register />, errorElement: <Error /> },
+])
+const App = () => {
+  return <RouterProvider router={router} />
+}
 export default App
