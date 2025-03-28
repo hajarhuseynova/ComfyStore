@@ -1,10 +1,10 @@
 import React from 'react'
-
+import { Hero } from '../components/index'
 const Landing = () => {
   return (
-    <div>
-      <p>Landing</p>
-    </div>
+    <>
+      <Hero />
+    </>
   )
 }
 
