@@ -3,9 +3,9 @@ import { customFetch } from '../utils'
 
 const url = '/products'
 
-export const loader = async ({ request }) => {
-  // const params = new URL(request.url).searchParams
-  // const search = params.get('search')
+//https:strapi-store-server.onrender.com/api/products
+
+ export const loader = async ({ request }) => {
   const params = Object.fromEntries([
     ...new URL(request.url).searchParams.entries(),
   ])
